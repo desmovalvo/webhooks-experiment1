@@ -1,0 +1,44 @@
+<html>
+
+  <head>
+    <title>My GitHub Notifications</title>
+    <style>
+    h1 {
+      color: maroon;
+      font-family: sans-serif;
+      font-size: 14px;
+      margin-left: 40px;
+    }
+    .notification {
+      border-style: solid;
+      border-size: 1px;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10px;
+      font-size: 10px;
+      font-family: sans-serif;
+      width: 60%;
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>My GitHub Notifications</h1>
+
+    <% $messages.each do |message| %>
+      <div class="notification">
+      <% for k in message.keys %>
+      <b><%= k %>:</b> 
+	<% if message[k].instance_of?(String) %>
+	<%= message[k] %>
+	<% else %>
+	<%= message[k].inspect[0..499] %>
+	<% end %><br>
+      <% end %>
+      </div>
+    <% end %>
+
+  </body>
+
+</html>
